@@ -18,3 +18,4 @@ void draw_background (cairo_t*, const char*);
 void draw_caption (cairo_t*, const char*);
 void draw_caption_background (cairo_t* cr);
 void draw_caption_text (cairo_t*, const char*);
+void draw_sand_mites (cairo_t*);

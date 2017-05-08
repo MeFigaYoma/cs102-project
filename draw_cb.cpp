@@ -13,6 +13,8 @@ void draw_cb (Fl_Cairo_Window* cw, cairo_t* cr) {
         cairo_translate (cr, 150, 400);
         draw_crab (cr, 1);
         cairo_restore (cr);
+        if (t == 0)
+            draw_title_page (cr);
     }
     else if (t < SCENE3) {
         static int dx = 0;
@@ -85,12 +87,19 @@ void draw_cb (Fl_Cairo_Window* cw, cairo_t* cr) {
         }
     }
     else if (t < SCENE6) {
+        static int fdx = 0; static int fdy = 0;
         draw_image (cr, 2);
         draw_caption (cr, captions[6].c_str ());
         cairo_save (cr);
-        cairo_translate (cr, 192, 348);
-        draw_crab (cr, 0);
+            cairo_translate (cr, 192, 348);
+            draw_crab (cr, 0);
         cairo_restore (cr);
+        cairo_save (cr);
+            cairo_translate (cr, 1125 + fdx, -650 + fdy);
+            cairo_scale (cr, -2, 2);
+            draw_fox (cr);
+        cairo_restore (cr);
+        fdx -= 4; if (t < SCENE5 + 32) fdy -= 2;
     }
     else if (t < SCENE7) {
         cairo_save (cr);
@@ -121,11 +130,18 @@ void draw_cb (Fl_Cairo_Window* cw, cairo_t* cr) {
         }
     }
     else {
+        static int fdx = 0;
         draw_image (cr, 2);
+        cairo_save (cr);    // fox
+            cairo_translate (cr, 565 + fdx, -714);
+            cairo_scale (cr, -2, 2);
+            draw_fox (cr);
+        cairo_restore (cr);
         draw_caption (cr, captions[8].c_str ());
         cairo_save (cr);    // blood
             cairo_translate (cr, 200, 100);
             draw_image (cr, 4);
         cairo_restore (cr);
+        fdx -= 2;
     }
 }

@@ -2,7 +2,7 @@
 
 void draw_sand_mites (cairo_t* cr)
 {
-    static bool m = false;
+    static int m = 0;
     double angle = 2 * PI;
     cairo_set_source_rgb (cr, 0, 0, 0); // black paint
     cairo_arc (cr, 0 + m, 0, 4, 0, angle);
@@ -30,5 +30,5 @@ void draw_sand_mites (cairo_t* cr)
     cairo_fill (cr);
     cairo_arc (cr, 50 + m, 15, 4, 0, angle);
     cairo_fill (cr);
-    m = !m;
+    m = (m + 2) % 4;
 }

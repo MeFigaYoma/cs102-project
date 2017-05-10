@@ -1,0 +1,181 @@
+\documentclass{ffslides}
+\ffpage{30}{1.33}
+\usepackage{documentation, fancyvrb}
+\begin{document}
+\normalpage{The Fox and the Crab}{by Alex Nguyen, Raymond Zerulla, Jiajun Liang, and Alexander Shtov}
+\normalpage{cs102 Project 1: Specification}{
+Our group project's goal is to make a program that will animate the 
+Aesop's Fable, "The Fox and the Crab". This will include the animation made with vector graphics
+and a textbox underneath this animation narrating the story. 
+}
+\normalpage{cs102 Project 1: Analysis}{
+\qi{Start with a credits title page before the main story.}
+\qi{The crab, fox, and sand mites are done with vector graphics.}
+\qi{The background changes according to the scenes.}
+\qi{The animation of the crab and fox is done with translation, rotation, and scaling.}
+\qi{The caption is added underneath the animation.}
+\qi{Sand mites jitter to simulate movement.}
+\qi{Use PNG images for the backgrounds, fox face, and blood.}
+\qi{Load all images at the start of the program to prevent lag.}
+}
+\normalpage{cs102 Project 1: Design - Assigned Parts}{
+\qi{Main and draw\_cb: Alexander}
+\qii{main - set up animation timer and FLTK window}
+\qii{draw\_cb - animates everything according to the animation timer}
+\qi{Background: Alex}
+\qii{draw\_image - loads all images the first time it is called, afterwards just displays the image selected}
+\qi{Crab: drawn using vector graphics - Jiajun}
+\qii{draw\_crab - draws the body circle and calls functions to draw other parts}
+\qii{draw\_crab\_legs}
+\qii{draw\_crab\_pincer}
+\qii{draw\_crab\_face - happy face}
+\qii{draw\_crab\_exciteface - scared face}
+\qii{draw\_crab\_sadface}
+\qi{Sand Mites: draw using vector graphics - Alex}
+\qii{draw\_sand\_mites - alternates position by 2 pixels every time it is called, simulating movement}
+}
+\normalpage{cs102 Project 1: Design - Assigned Parts cont.}{
+\qi{Textbox: Sentences describing scenes in a window - Alexander}
+\qii{draw\_caption - calls draw\_caption\_background and draw\_caption\_text}
+\qii{draw\_caption\_background - draws a black box on the bottom of the screen to frame the caption}
+\qii{draw\_caption\_text - draws the text for the scene on 1 or 2 lines}
+\qi{Fox: Vector graphics - Ray}
+\qii{draw\_fox - calls draw\_fox\_body and one of the two draw\_fox\_legs alternating every 2 times it is called}
+\qii{draw\_fox\_body}
+\qii{draw\_fox\_legs - 2 functions for 2 different positions of the legs} 
+\qi{Zoom: Alexander}
+\qii{Zoom scene: zooms into scene of fox eating crab}
+\qii{Draws a fox head that eats the crab from a PNG file.}
+}
+\normalpage{cs102 Project : Implementation : main.cpp}{
+\fvset{numbers=left, firstline=1, lastline=13}
+\footnotesize{\VerbatimInput{main.cpp}}
+\btext{0.1}{0.8}{0.8}{t is the global timer for the animation.}
+}
+\normalpage{cs102 Project : Implementation : animate\_cb.cpp}{
+\fvset{numbers=left, firstline=1, lastline=10}
+\footnotesize{\VerbatimInput{animate_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_image.cpp}{
+\fvset{numbers=left, firstline=1, lastline=13}
+\footnotesize{\VerbatimInput{draw_image.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=1, lastline=18}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=19, lastline=32}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=33, lastline=56}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=57, lastline=88}
+\scriptsize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=89, lastline=103}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=104, lastline=131}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_cb.cpp}{
+\fvset{numbers=left, firstline=132, lastline=147}
+\footnotesize{\VerbatimInput{draw_cb.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_caption.cpp}{
+\fvset{numbers=left, firstline=1, lastline=6}
+\footnotesize{\VerbatimInput{draw_caption.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_caption\_background.cpp}{
+\fvset{numbers=left, firstline=1, lastline=11}
+\footnotesize{\VerbatimInput{draw_caption_background.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_caption\_text.cpp}{
+\fvset{numbers=left, firstline=1, lastline=18}
+\footnotesize{\VerbatimInput{draw_caption_text.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_sand\_mites.cpp}{
+\fvset{numbers=left, firstline=1, lastline=34}
+\scriptsize{\VerbatimInput{draw_sand_mites.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab.cpp}{
+\fvset{numbers=left, firstline=1, lastline=22}
+\footnotesize{\VerbatimInput{draw_crab.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_face.cpp}{
+\fvset{numbers=left, firstline=1, lastline=17}
+\footnotesize{\VerbatimInput{draw_crab_face.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_legs.cpp}{
+\fvset{numbers=left, firstline=1, lastline=28}
+\footnotesize{\VerbatimInput{draw_crab_legs.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_legs.cpp}{
+\fvset{numbers=left, firstline=30, lastline=45}
+\footnotesize{\VerbatimInput{draw_crab_legs.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_pincer.cpp}{
+\fvset{numbers=left, firstline=1, lastline=32}
+\scriptsize{\VerbatimInput{draw_crab_pincer.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_sadface.cpp}{
+\fvset{numbers=left, firstline=1, lastline=17}
+\footnotesize{\VerbatimInput{draw_crab_sadface.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_crab\_exciteface.cpp}{
+\fvset{numbers=left, firstline=1, lastline=16}
+\footnotesize{\VerbatimInput{draw_crab_exciteface.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_fox.cpp}{
+\fvset{numbers=left, firstline=1, lastline=13}
+\footnotesize{\VerbatimInput{draw_fox.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_fox\_body.cpp}{
+\fvset{numbers=left, firstline=1, lastline=29}
+\footnotesize{\VerbatimInput{draw_fox_body.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_fox\_body.cpp}{
+\fvset{numbers=left, firstline=31, lastline=54}
+\footnotesize{\VerbatimInput{draw_fox_body.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_2\_fox\_legs.cpp}{
+\fvset{numbers=left, firstline=1, lastline=29}
+\footnotesize{\VerbatimInput{draw_2_fox_legs.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_3\_fox\_legs.cpp}{
+\fvset{numbers=left, firstline=1, lastline=29}
+\footnotesize{\VerbatimInput{draw_3_fox_legs.cpp}}
+}
+\normalpage{cs102 Project : Implementation : draw\_title\_page.cpp}{
+\fvset{numbers=left, firstline=1, lastline=20}
+\footnotesize{\VerbatimInput{draw_title_page.cpp}}
+}
+\normalpage{cs102 Project : Implementation : project.h}{
+\fvset{numbers=left, firstline=1, lastline=34}
+\scriptsize{\VerbatimInput{project.h}}
+}
+\normalpage{cs102 Project : Problems}{
+\qi{Loading PNG images from hard drive every frame caused lag}
+\qii{Fixed by loading images only once when the program starts}
+\qi{Fox, crab, and sand mites were not drawn at the origin originally}
+\qii{Crab and sand mites were modified to be drawn at the origin for easy translation}
+\qii{Did not have time to fix fox; worked around it}
+\qi{Repeated problem with vector graphics for some reason having ``int a2 = PI * 2''}
+\qii{PI is not an integer}
+\qii{Caused graphical glitches (lines drawn to other parts of the scene)}
+\qii{Fixed by changing all occurences to ``double a2 = PI * 2''}
+}
+\normalpage{cs102 Project : Unimplemented Ideas}{
+\qi{Crab walking animation - didn't realize we did not have a crab animation until the end}
+\qi{Backgorund pictures of animals- did not like the idea, so was scratched out}
+\qi{Moving water and sun}
+\qi{Crab thought bubble in scene 3 - did not have time}
+\qi{Bush for fox to hide behind - not practical}
+}
+\end{document}
